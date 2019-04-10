@@ -1,0 +1,41 @@
+{
+  "name": "nodejsproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "start": "nodemon app.js",
+    "test": "mocha tests/**/*Tests.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.10",
+    "swagger-ui-express": "^4.0.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.16.0",
+    "install": "^0.12.2",
+    "mocha": "^6.0.2",
+    "npm": "^6.9.0",
+    "should": "^13.2.3",
+    "sinon": "^7.3.1"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      ".git",
+      "node_modules/**/node_modules"
+    ],
+    "exec": "npm run lint && node app.js",
+    "verbose": true,
+    "env": {
+      "NODE_ENV": "development"
+    }
+  }
+}
