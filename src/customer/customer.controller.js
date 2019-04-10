@@ -22,30 +22,40 @@ function customersController(customerService, fincoreService){
     function post(req,res){
 
        const customer = req.body;
-       let message = '';
+       let errors = [];
 
        if(customer.first_name === undefined || customer.first_name ===""){
-           res.status(400);
-           return res.send('first_name is required');
+          errors.push({
+              fieldName:'first_name',
+              message:'required'
+          });
        }
 
-        if(customer.first_name === undefined || customer.first_name ===""){
-            res.status(400);
-            return res.send('last_name is required');
+        if(customer.last_name === undefined || customer.last_name ===""){
+            errors.push({
+                fieldName:'last_name',
+                message:'required'
+            });
         }
 
         if(customer.email === undefined || customer.email ===""){
-            res.status(400);
-            return res.send('email is required');
+            errors.push({
+                fieldName:'email',
+                message:'required'
+            });
         }
 
         if(customer.phone === undefined || customer.phone ===""){
-            res.status(400);
-            return res.send('phone is required');
+            errors.push({
+                fieldName:'phone',
+                message:'required'
+            });
         }
 
-
-
+        if(errors.length >0){
+            res.status(401);
+            return res.json(errors);
+        }
 
         res.status(201);
         return res.json(req.body);
