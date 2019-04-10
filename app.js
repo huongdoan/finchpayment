@@ -8,13 +8,13 @@ const basicAuth = require('./src/utils/basic-auth');
 const errorHandler = require('./src/utils/errorhandler');
 const customerRouter = require('./src/customer/customer.router')();
 const paymentRouter = require('./src/payment/payment.router')();
-//const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 80;
 
-//app.use(bodyParser.urlencoded({extended:true}));
-//app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
 
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded());
@@ -38,3 +38,5 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.listen(port,()=>{
     console.log(`runnning port ${port}`);
 });
+
+module.exports = app;
