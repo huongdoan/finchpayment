@@ -19,6 +19,7 @@ const port = process.env.PORT || 3000;
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded());
 app.use(express.json());
+
 app.use(cors());
 
 // use basic HTTP auth to secure the api

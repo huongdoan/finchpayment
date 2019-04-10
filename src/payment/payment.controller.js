@@ -1,15 +1,9 @@
 
 function paymentController(customerService, fincoreService) {
-    async function get(req, res) {
-        console.log('find');
-        const query = req.params.id;
 
 
-        return res.json('');
-    }
 
-
-    function createAccount(req, res) {
+    function chargesv2(req, res) {
 
 
         res.status(201);
@@ -23,7 +17,7 @@ function paymentController(customerService, fincoreService) {
         return res.json(req.body);
     }
 
-    return {createAccount,get, charges};
+    return {charges, chargesv2};
 }
 
 

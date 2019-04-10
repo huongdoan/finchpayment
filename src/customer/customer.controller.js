@@ -21,6 +21,8 @@ function customersController(customerService, fincoreService){
 
     function post(req,res){
 
+
+
        const customer = req.body;
        let errors = [];
 
@@ -54,7 +56,7 @@ function customersController(customerService, fincoreService){
 
         if(errors.length >0){
             res.status(401);
-            return res.json(errors);
+            return res.json({errors:errors});
         }
 
         res.status(201);
