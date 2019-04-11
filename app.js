@@ -23,7 +23,7 @@ app.use(express.json());
 app.use(cors());
 
 // use basic HTTP auth to secure the api
-//app.use('/api',basicAuth);
+app.use('/api',basicAuth);
 
 
 // api routes
