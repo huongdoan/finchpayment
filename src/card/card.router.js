@@ -9,9 +9,9 @@ function routes() {
 
     const controller = cardController('',fincoreService);
 
-    cardRouter.route('/customers/:id/accounts')
+    cardRouter.route('/cards')
         .get(controller.get);
-    cardRouter.route('/customers/:id/accounts')
+    cardRouter.route('/cards')
         .post(controller.post);
     cardRouter.route('/customers/:id/accounts')
         .delete(controller.del);
