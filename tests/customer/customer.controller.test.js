@@ -35,6 +35,38 @@ describe('cusomters', () => {0
                     done();
                 });
         });
+
+        it('it should not find any customers, if query by empty phone', (done)  => {
+
+            chai.request(server)
+                .get('/api/customers')
+                .query({ phone: ''})
+                .end((err, res) => {
+                    res.should.have.status(404);
+                    done();
+                });
+        });
+
+        it('it should not find any customers, if query by empty email', (done)  => {
+
+            chai.request(server)
+                .get('/api/customers')
+                .query({ email: ''})
+                .end((err, res) => {
+                    res.should.have.status(404);
+                    done();
+                });
+        });
+
+        it('it should not find any customers, if not include query', (done)  => {
+            chai.request(server)
+                .get('/api/customers')
+                .end((err, res) => {
+                    res.should.have.status(404);
+                    done();
+                });
+        });
+
     });
 });
 

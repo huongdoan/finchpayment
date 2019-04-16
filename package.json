@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint .",
     "start": "nodemon app.js",
-    "test": "mocha tests/**/*Tests.js"
+    "test": "mocha tests/**/*.test.js"
   },
   "author": "",
   "license": "ISC",
