@@ -9,12 +9,10 @@ function routes() {
 
     const controller = paymentController('',fincoreService);
 
-    customerRouter.route('/customers/:id/accounts')
-        .get(controller.get);
-    customerRouter.route('/customers/:id/accounts')
-        .post(controller.createAccount);
     customerRouter.route('/customers/:id/charges')
         .post(controller.charges);
+    customerRouter.route('/customers/:id/chargesv2')
+        .post(controller.chargesv2);
 
     return customerRouter;
 
