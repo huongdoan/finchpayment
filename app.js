@@ -12,7 +12,7 @@ const paymentRouter = require('./src/payment/payment.router')();
 const bodyParser = require('body-parser');
 
 const app = express();
-const port = process.env.PORT || 80;
+const port = process.env.PORT || 8081;
 
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
