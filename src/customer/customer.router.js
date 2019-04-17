@@ -1,5 +1,6 @@
 const express = require('express');
 const fincoreService = require('../utils/fincore.service');
+const customerService = require('../customer/customer.service');
 
 const customerController = require('./customer.controller');
 
@@ -7,7 +8,7 @@ function routes() {
 
     const customerRouter = express.Router();
 
-    const controller = customerController('',fincoreService);
+    const controller = customerController(customerService,fincoreService);
 
     customerRouter.route('/customers')
         .get(controller.get);

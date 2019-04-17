@@ -1,0 +1,32 @@
+version: '3'
+
+services:
+  node:
+    build:
+      context: .
+      dockerfile: node.dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - nodeapp-network
+  postgresdb:
+    image: postgres
+    restart: always
+    networks:
+      - nodeapp-network
+    volumes:
+      - database_data:/usr/src/app/postgresql/data
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=finchpaymentdb
+
+networks:
+  nodeapp-network:
+    driver: bridge
+volumes:
+  database_data:
+    driver: local
+

@@ -1,3 +1,4 @@
+const customerService = require('../customer/customer.service');
 
 function customersController(customerService, fincoreService){
 
@@ -19,9 +20,7 @@ function customersController(customerService, fincoreService){
     }
 
 
-    function post(req,res){
-
-
+    async  function post(req,res,next){
 
        const customer = req.body;
        let errors = [];
@@ -59,8 +58,15 @@ function customersController(customerService, fincoreService){
             return res.json({errors:errors});
         }
 
-        res.status(201);
-        return res.json(req.body);
+        try {
+            const rs = await customerService.createCustomer(customer);
+            res.status(201);
+            return res.json(rs);
+        }catch (e) {
+         return  next(e);
+        }
+
+
     }
 
 
