@@ -1,15 +1,7 @@
 
 const Customer = require('../models/customer');
 
-const awaitErorrHandlerFactory = middleware => {
-    return async (customer) => {
-        try {
-            await middleware(customer);
-        } catch (err) {
-            next(err);
-        }
-    };
-};
+
 
 module.exports = {
     createCustomer,

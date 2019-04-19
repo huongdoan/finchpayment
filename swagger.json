@@ -2,10 +2,10 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Yet Another Node.js Blogg Application API",
-    "description": "Yet Another Node.js Blogg Application API",
+    "title": "Application API",
+    "description": "Y Application API",
     "license": {
-      "name": "MIT",
+      "name": "Finchpayment",
       "url": "https://opensource.org/licenses/MIT"
     }
   },
@@ -13,8 +13,8 @@
   "basePath": "/api/v1",
   "tags": [
     {
-      "name": "Users",
-      "description": "API for users in the system"
+      "name": "Customers",
+      "description": "API for customer in the system"
     }
   ],
   "schemes": [
@@ -27,19 +27,20 @@
     "application/json"
   ],
   "paths": {
-    "/users": {
+    "/customers": {
       "post": {
         "tags": [
-          "Users"
+          "Customers"
         ],
         "description": "Create new user in system",
         "parameters": [
           {
-            "name": "user",
-            "in": "body",
-            "description": "User that we want to create",
+            "first_name": "first_name",
+            "last_name": "last_name",
+            "phone": "11111",
+            "email": "email@email.com",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Customers"
             }
           }
         ],
@@ -48,29 +49,29 @@
         ],
         "responses": {
           "200": {
-            "description": "New user is created",
+            "description": "New customer is created",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Customers"
             }
           }
         }
       },
       "get": {
         "tags": [
-          "Users"
+          "Customers"
         ],
-        "summary": "Get all users in system",
+        "summary": "Get all Customers in system",
         "responses": {
           "200": {
             "description": "OK",
             "schema": {
-              "$ref": "#/definitions/Users"
+              "$ref": "#/definitions/Customers"
             }
           }
         }
       }
     },
-    "/users/{userId}": {
+    "/Customers/{userId}": {
       "parameters": [
         {
           "name": "userId",
@@ -82,14 +83,14 @@
       ],
       "get": {
         "tags": [
-          "Users"
+          "Customers"
         ],
         "summary": "Get user with given ID",
         "responses": {
           "200": {
             "description": "User is found",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Customers"
             }
           }
         }
@@ -97,13 +98,13 @@
       "delete": {
         "summary": "Delete user with given ID",
         "tags": [
-          "Users"
+          "Customers"
         ],
         "responses": {
           "200": {
             "description": "User is deleted",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Customers"
             }
           }
         }
@@ -111,7 +112,7 @@
       "put": {
         "summary": "Update user with give ID",
         "tags": [
-          "Users"
+          "Customers"
         ],
         "parameters": [
           {
@@ -119,7 +120,7 @@
             "in": "body",
             "description": "User with new values of properties",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Customers"
             }
           }
         ],
@@ -127,7 +128,7 @@
           "200": {
             "description": "User is updated",
             "schema": {
-              "$ref": "#/definitions/User"
+              "$ref": "#/definitions/Customers"
             }
           }
         }
@@ -135,7 +136,7 @@
     }
   },
   "definitions": {
-    "User": {
+    "Customers": {
       "required": [
         "email",
         "_id"
@@ -157,7 +158,7 @@
         }
       }
     },
-    "Users": {
+    "Customers": {
       "type": "array",
       "$ref": "#/definitions/User"
     }
